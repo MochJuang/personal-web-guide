@@ -150,6 +150,18 @@
     #gallery .section-tag { background: rgba(82,183,136,.2); color: var(--green-light); }
     #gallery .section-title { color: var(--white); }
     #gallery .section-sub { color: rgba(255,255,255,.7); }
+    .gallery-quote {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      margin: 16px auto 0; max-width: 600px;
+    }
+    .gallery-quote::before, .gallery-quote::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(82,183,136,.6), transparent);
+    }
+    .gallery-quote span {
+      color: var(--green-light); font-style: italic; font-size: 1.05rem;
+      font-weight: 300; letter-spacing: .5px; white-space: nowrap;
+    }
     .gallery-head { text-align: center; margin-bottom: 48px; }
     .gallery-grid {
       display: grid;
@@ -240,6 +252,53 @@
       50% { box-shadow: 0 6px 32px rgba(37,211,102,.75); }
     }
 
+    /* ─── DESTINASI ──────────────────────────────────── */
+    #destinasi { background: var(--white); }
+    .destinasi-head { text-align: center; margin-bottom: 52px; }
+    .destinasi-head .section-sub { margin: 0 auto; }
+    .destinasi-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .destinasi-card {
+      border-radius: 20px; overflow: hidden; border: 1px solid var(--green-pale);
+      box-shadow: 0 4px 20px rgba(0,0,0,.06); transition: transform .25s, box-shadow .25s;
+      background: var(--white);
+    }
+    .destinasi-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,74,46,.13); }
+    .destinasi-img { position: relative; height: 200px; overflow: hidden; }
+    .destinasi-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; display: block; }
+    .destinasi-card:hover .destinasi-img img { transform: scale(1.07); }
+    .destinasi-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--green-mid); color: var(--white);
+      padding: 4px 12px; border-radius: 20px; font-size: .72rem; font-weight: 700;
+      letter-spacing: .5px; text-transform: uppercase;
+    }
+    .destinasi-body { padding: 22px 24px 26px; }
+    .destinasi-icon-title { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .destinasi-icon-title i { color: var(--green-mid); font-size: 1.1rem; }
+    .destinasi-body h3 { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+    .destinasi-body p { font-size: .86rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 14px; }
+    .destinasi-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .dtag {
+      background: var(--green-pale); color: var(--green-mid);
+      padding: 3px 10px; border-radius: 14px; font-size: .72rem; font-weight: 600;
+    }
+
+    /* ─── TIPS BOX ───────────────────────────────────── */
+    .tips-box {
+      max-width: 1100px; margin: 48px auto 0; background: linear-gradient(135deg, var(--green-pale), #b7e4c7);
+      border-radius: 20px; padding: 32px 36px; display: grid;
+      grid-template-columns: auto 1fr; gap: 24px; align-items: start;
+      border: 1px solid #95d5b2;
+    }
+    .tips-icon { font-size: 2.4rem; color: var(--green-mid); }
+    .tips-content h3 { font-size: 1rem; font-weight: 700; color: var(--green-dark); margin-bottom: 10px; }
+    .tips-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .tips-list li { font-size: .86rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 8px; }
+    .tips-list li::before { content: "✓"; color: var(--green-mid); font-weight: 700; flex-shrink: 0; }
+
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0;
@@ -267,6 +326,7 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">Tentang Saya</a></li>
     <li><a href="#services">Layanan</a></li>
+    <li><a href="#destinasi">Destinasi</a></li>
     <li><a href="#gallery">Galeri</a></li>
     <li><a href="#testimonials">Ulasan</a></li>
     <li><a href="https://wa.me/6287872437432?text=Halo%20Kang%20Samsudin%2C%20saya%20ingin%20tanya%20seputar%20wisata%20Situ%20Gunung%20🌿" target="_blank" class="nav-wa"><i class="fab fa-whatsapp"></i> Chat WA</a></li>
@@ -379,12 +439,137 @@
   </div>
 </section>
 
+<!-- DESTINASI -->
+<section id="destinasi">
+  <div class="destinasi-head">
+    <span class="section-tag">Destinasi</span>
+    <h2 class="section-title">Apa Saja yang Ada di Situ Gunung?</h2>
+    <p class="section-sub">Kawasan wisata Situ Gunung menyimpan banyak daya tarik — dari jembatan gantung ikonik hingga air terjun tersembunyi.</p>
+  </div>
+  <div class="destinasi-grid">
+
+    <div class="destinasi-card">
+      <div class="destinasi-img">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Jembatan Gantung Situ Gunung" />
+        <div class="destinasi-badge">Ikon Utama</div>
+      </div>
+      <div class="destinasi-body">
+        <div class="destinasi-icon-title"><i class="fas fa-archway"></i><h3>Jembatan Gantung Situ Gunung</h3></div>
+        <p>Jembatan gantung sepanjang ±243 meter yang membentang di atas lembah hijau — salah satu yang terpanjang di Asia Tenggara. Sensasi berjalan di atas keindahan alam yang luar biasa!</p>
+        <div class="destinasi-tags">
+          <span class="dtag">243 meter</span>
+          <span class="dtag">Foto Instagramable</span>
+          <span class="dtag">Asia Tenggara</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="destinasi-card">
+      <div class="destinasi-img">
+        <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=600&q=80" alt="Curug Sawer" />
+        <div class="destinasi-badge">Air Terjun</div>
+      </div>
+      <div class="destinasi-body">
+        <div class="destinasi-icon-title"><i class="fas fa-water"></i><h3>Curug Sawer</h3></div>
+        <p>Air terjun setinggi ±35 meter dengan kolam alami yang menyegarkan. Dikelilingi hutan lebat dan udara segar khas pegunungan Sukabumi. Surga bagi pecinta alam!</p>
+        <div class="destinasi-tags">
+          <span class="dtag">±35 meter</span>
+          <span class="dtag">Kolam Alami</span>
+          <span class="dtag">Sejuk & Segar</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="destinasi-card">
+      <div class="destinasi-img">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Danau Situ Gunung" />
+        <div class="destinasi-badge">Danau</div>
+      </div>
+      <div class="destinasi-body">
+        <div class="destinasi-icon-title"><i class="fas fa-water"></i><h3>Danau Situ Gunung</h3></div>
+        <p>Danau alami yang tenang dan memesona, dikelilingi perbukitan hijau dan hutan pinus. Sempurna untuk piknik, refleksi, atau sekadar menikmati ketenangan alam.</p>
+        <div class="destinasi-tags">
+          <span class="dtag">Danau Alami</span>
+          <span class="dtag">Pemandangan Indah</span>
+          <span class="dtag">Spot Foto</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="destinasi-card">
+      <div class="destinasi-img">
+        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80" alt="Hutan Taman Nasional" />
+        <div class="destinasi-badge">Hutan Lindung</div>
+      </div>
+      <div class="destinasi-body">
+        <div class="destinasi-icon-title"><i class="fas fa-tree"></i><h3>Hutan Alam TNGHS</h3></div>
+        <p>Bagian dari Taman Nasional Gunung Halimun-Salak — salah satu hutan hujan tropis terbesar di Jawa. Kaya flora-fauna endemik, udara segar, dan jalur trekking yang menakjubkan.</p>
+        <div class="destinasi-tags">
+          <span class="dtag">Taman Nasional</span>
+          <span class="dtag">Flora Endemik</span>
+          <span class="dtag">Trekking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="destinasi-card">
+      <div class="destinasi-img">
+        <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?w=600&q=80" alt="Glamping & Camping" />
+        <div class="destinasi-badge">Menginap</div>
+      </div>
+      <div class="destinasi-body">
+        <div class="destinasi-icon-title"><i class="fas fa-campground"></i><h3>Area Glamping & Camping</h3></div>
+        <p>Nikmati pengalaman bermalam di alam terbuka — pilih camping klasik atau glamping dengan tenda mewah berlampu. Api unggun, bintang gemilang, dan udara gunung malam hari.</p>
+        <div class="destinasi-tags">
+          <span class="dtag">Glamping</span>
+          <span class="dtag">Api Unggun</span>
+          <span class="dtag">Bintang Gemilang</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="destinasi-card">
+      <div class="destinasi-img">
+        <img src="https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?w=600&q=80" alt="Flying Fox" />
+        <div class="destinasi-badge">Wahana</div>
+      </div>
+      <div class="destinasi-body">
+        <div class="destinasi-icon-title"><i class="fas fa-rocket"></i><h3>Flying Fox & Wahana Petualangan</h3></div>
+        <p>Uji adrenalin dengan flying fox melintasi lembah hijau! Tersedia juga berbagai wahana outbound seru yang cocok untuk keluarga, pelajar, maupun team building.</p>
+        <div class="destinasi-tags">
+          <span class="dtag">Flying Fox</span>
+          <span class="dtag">Outbound</span>
+          <span class="dtag">Team Building</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tips Box -->
+  <div class="tips-box">
+    <div class="tips-icon"><i class="fas fa-lightbulb"></i></div>
+    <div class="tips-content">
+      <h3>Tips Kunjungan ke Situ Gunung</h3>
+      <ul class="tips-list">
+        <li>Datang pagi hari (06.00–08.00) untuk menghindari keramaian dan mendapat cahaya foto terbaik</li>
+        <li>Gunakan sepatu yang nyaman dan anti-slip untuk jalur trekking</li>
+        <li>Bawa jaket — suhu bisa turun drastis terutama saat pagi dan malam hari</li>
+        <li>Siapkan fisik untuk trekking ke Curug Sawer (±30–45 menit jalan kaki)</li>
+        <li>Booking terlebih dahulu via WhatsApp untuk memastikan ketersediaan guide & paket</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section id="gallery">
   <div class="gallery-head">
     <span class="section-tag">Galeri</span>
     <h2 class="section-title">Pesona Situ Gunung</h2>
-    <p class="section-sub">Sekilas keindahan yang menanti Anda di Situ Gunung, Sukabumi.</p>
+    <div class="gallery-quote">
+      <span>✦ &nbsp;Sekilas keindahan yang menanti Anda di Situ Gunung, Sukabumi&nbsp; ✦</span>
+    </div>
   </div>
   <div class="gallery-grid">
     <div class="gallery-item">
